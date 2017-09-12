@@ -24,7 +24,7 @@ window.onload = function init(){
 		var y = size * Math.sin(2 * Math.PI / sides * i);
 		var cx = 1;
 		var cy = .41;
-		vertices.push(vec2(x * cx + y * cy, y * cx - x * cy));
+		vertices.push(vec2(x * cy + y * cx, y * cy - x * cx));
 		//vertices.push(vec2(x, y));
 	};
 
