@@ -1,20 +1,24 @@
 // square.js -- a graphics "Hello World"
 var gl;
 var points;
+var vertices;
 
 window.onload = function init(){
     var canvas = document.getElementById( "gl-canvas" );
 
     //    gl = WebGLUtils.setupWebGL( canvas );  // More efficient
     gl = WebGLDebugUtils.makeDebugContext( canvas.getContext("webgl") ); // For debugging
-    if ( !gl ) { alert( "WebGL isn't available" );
-               }
+    if ( !gl ) { 
+		alert( "WebGL isn't available" );
+    }
 
     // Four 2D Vertices using Angel/Shreiner utility class vac2
-    var vertices = [
+    vertices = [
         vec2( -0.5, -0.5 ),
         vec2(  -0.5,  0.5 ),
+		vec2(  -0.25,  0.25 ),
         vec2(  0.5, 0.5 ),
+		vec2(  0.25, 0.25 ),
         vec2( 0.5, -0.5)
     ];
 
@@ -60,5 +64,5 @@ window.onload = function init(){
 
 function render() {
     gl.clear( gl.COLOR_BUFFER_BIT );
-    gl.drawArrays( gl.TRIANGLE_FAN, 0, 4 );
+    gl.drawArrays( gl.LINE_LOOP, 0, vertices.length );
 }
