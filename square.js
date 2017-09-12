@@ -12,16 +12,20 @@ window.onload = function init(){
 		alert( "WebGL isn't available" );
     }
 	
+	vertices = [];
+	
+	
+	//The code and variables below is how you will define a n sided polygon
 	var size = .25;
 	var sides = 8;
 
-    // Four 2D Vertices using Angel/Shreiner utility class vac2
-    vertices = [];
-	
 	for(var i = 0; i < sides; i++){
 		var x = size * Math.cos(2 * Math.PI / sides * i);
 		var y = size * Math.sin(2 * Math.PI / sides * i);
-		vertices.push(vec2(x, y));
+		var cx = 0;
+		var cy = 0;
+		vertices.push(vec2(x + y * .41, y - x * .41));
+		//vertices.push(vec2(x, y));
 	};
 
 
