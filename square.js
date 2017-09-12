@@ -11,16 +11,18 @@ window.onload = function init(){
     if ( !gl ) { 
 		alert( "WebGL isn't available" );
     }
+	
+	var size = .25;
+	var sides = 8;
 
     // Four 2D Vertices using Angel/Shreiner utility class vac2
-    vertices = [
-        vec2( -0.5, -0.5 ),
-        vec2(  -0.5,  0.5 ),
-		vec2(  -0.25,  0.25 ),
-        vec2(  0.5, 0.5 ),
-		vec2(  0.25, 0.25 ),
-        vec2( 0.5, -0.5)
-    ];
+    vertices = [];
+	
+	for(var i = 0; i < sides; i++){
+		var x = size * Math.cos(2 * Math.PI / sides * i);
+		var y = size * Math.sin(2 * Math.PI / sides * i);
+		vertices.push(vec2(x, y));
+	};
 
 
     //  Configure WebGL
