@@ -2,9 +2,10 @@
 var gl;
 var points;
 var vertices;
+var canvas; 
 
 window.onload = function init(){
-    var canvas = document.getElementById( "gl-canvas" );
+    canvas = document.getElementById( "gl-canvas" );
 
     //    gl = WebGLUtils.setupWebGL( canvas );  // More efficient
     gl = WebGLDebugUtils.makeDebugContext( canvas.getContext("webgl") ); // For debugging
@@ -31,7 +32,7 @@ window.onload = function init(){
 
     //  Configure WebGL
 
-    gl.viewport( 0, 0, canvas.width, canvas.height );
+    
     gl.clearColor( 0.0, 0.0, 0.0, 1.0 );
 
     //  Load shaders and initialize attribute buffers using A/S utility initShaders
@@ -70,5 +71,12 @@ window.onload = function init(){
 
 function render() {
     gl.clear( gl.COLOR_BUFFER_BIT );
-    gl.drawArrays( gl.LINE_LOOP, 0, vertices.length );
+	var yCounter = 0;
+	for(var i = 0; i < 8; i++){
+		gl.viewport( -190 + (i * 127) , yCounter * 127, canvas.width, canvas.height);
+		gl.drawArrays( gl.LINE_LOOP, 0, vertices.length );
+		if(i !== 0 && i % 4 === 0){
+			yCounter++;
+		}
+	}
 }
