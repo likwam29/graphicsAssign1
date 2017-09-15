@@ -17,7 +17,7 @@ window.onload = function init(){
 	
 	
 	//The code and variables below is how you will define a n sided polygon
-	var size = .4;
+	var size = 1;
 	var sides = 8;
 
 	for(var i = 0; i < sides; i++){
@@ -73,7 +73,7 @@ function render() {
     gl.clear( gl.COLOR_BUFFER_BIT );
 	for(var i = 0; i < 4; i++){
 		for(var j = 0; j < 6; j++){
-			gl.viewport( -270 + (j * 154) , -70 + (i * 104), canvas.width/2, canvas.height/2);
+			gl.viewport(3 + (j * 127) , 5+ (i * 85), canvas.width/6, canvas.height/6);
 			gl.drawArrays( gl.LINE_LOOP, 0, vertices.length );
 		}
 	}
