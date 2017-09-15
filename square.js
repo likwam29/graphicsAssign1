@@ -15,7 +15,6 @@ window.onload = function init(){
 	
 	vertices = [];
 	
-	
 	//The code and variables below is how you will define a n sided polygon
 	var size = 1;
 	var sides = 8;
@@ -29,10 +28,8 @@ window.onload = function init(){
 		//vertices.push(vec2(x, y));
 	};
 
-
     //  Configure WebGL
 
-    
     gl.clearColor( 0.0, 0.0, 0.0, 1.0 );
 
     //  Load shaders and initialize attribute buffers using A/S utility initShaders
@@ -45,7 +42,6 @@ window.onload = function init(){
     var bufferId = gl.createBuffer();
     gl.bindBuffer( gl.ARRAY_BUFFER, bufferId );
     gl.bufferData( gl.ARRAY_BUFFER, flatten(vertices), gl.STATIC_DRAW );
-
 
     // Associate our shader variables with our data buffer
 
